@@ -1,3 +1,5 @@
+-> Link diagrama de classes: https://lucid.app/documents#/documents?folder_id=home
+
 -> Vou fazer uma simplificação das batalhas Pokémon dos Games Clássicos
 -> Quando um monstro usa um item, ele não consome energia. Somente habilidades
 

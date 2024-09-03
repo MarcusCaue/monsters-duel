@@ -1,0 +1,1 @@
+- Continuar modelando a classe Game
