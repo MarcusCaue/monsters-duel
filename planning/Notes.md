@@ -1,4 +1,5 @@
 -> Vou fazer uma simplificação das batalhas Pokémon dos Games Clássicos
+-> Quando um monstro usa um item, ele não consome energia. Somente habilidades
 
 -> Classes:
    - `Jogador`;  
@@ -6,13 +7,15 @@
    - `Habilidade`, que terá uma classe filha chamada `Habilidade Especial`;
    - `Item`;
 
--> Jogador {
+- Jogador {
    - nome : string
    - monstro : Monstro
    - itens[4] : Item
+
+   - usarItem(int indexItem) : void 
 }
 
--> Monstro {
+- Monstro {
    - especie : string <- { "Texugo", "Leão", "Corvo", "Serpente" }
    - nome : string
    - vida : int
@@ -25,21 +28,23 @@
    - descansar() : void
    - usarHabilidade(int indiceHabilidade) : void
    - usarEspecial() : void
-   - usarItem(Item& item) : void
-
 }
 
--> Habilidade {
+- Habilidade {
    - nome : string
    - desc : string
    - consumoEnergia : int
+
+   - executar(Monstro& invocador, Monstro& paciente) : void
 }
 
--> HabilidadeEspecial : Habilidade { 
+- HabilidadeEspecial : Habilidade { 
    - consumoEnergia : const int 
 }
 
--> Item {
+- Item {
    - nome : string
    - desc : string
+
+   - aplicarEfeito(Monstro& paciente) : void
 }
