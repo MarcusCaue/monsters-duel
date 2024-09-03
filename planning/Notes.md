@@ -18,12 +18,28 @@
    - vida : int
    - atq : int
    - def : int
+   - energia : int
    - habilidades[4] : Habilidade
    - special : HabilidadeEspecial
+
+   - descansar() : void
+   - usarHabilidade(int indiceHabilidade) : void
+   - usarEspecial() : void
+   - usarItem(Item& item) : void
+
 }
 
 -> Habilidade {
    - nome : string
    - desc : string
-   
+   - consumoEnergia : int
+}
+
+-> HabilidadeEspecial : Habilidade { 
+   - consumoEnergia : const int 
+}
+
+-> Item {
+   - nome : string
+   - desc : string
 }
