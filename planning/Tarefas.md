@@ -1,1 +1,1 @@
-- Continuar modelando a classe Game
+- Criar os Sprites do Jogo
