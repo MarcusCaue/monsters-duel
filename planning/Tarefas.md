@@ -1,8 +1,5 @@
-- Assistir ao minicurso: 
-
-- Remodelar:
-    - 
-
+- Assistir ao minicurso;
+- Remodelar o projeto com base nas explicações de Victor
 
 - Criar os Sprites do Jogo:
     - Tela inicial
