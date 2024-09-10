@@ -1,26 +1,68 @@
 #include "./ASCII_Engine/Core/SpriteBase.hpp"
-#include "./ASCII_Engine/TextSprite.hpp"
-#include "./ASCII_Engine/Sprite.hpp"
 #include "./ASCII_Engine/Cores.hpp"
+#include "./ASCII_Engine/Sprite.hpp"
 #include "./ASCII_Engine/SpriteBuffer.hpp"
+#include "./ASCII_Engine/TextSprite.hpp"
+#include "./ASCII_Engine/ObjetoDeJogo.hpp"
 
 #include <iostream>
+#include <string>
 using namespace std;
 
+// Tela de seleção de monstro
+/* for (Sprite &sp : sps) {
+	system("clear");
+
+	luff.update();
+	corvo.update();
+	leao.update();
+	serp.update();
+
+	// draw(linha, coluna)
+	luff.draw(tela, 0, 0);
+	corvo.draw(tela, 0, 110);
+	leao.draw(tela, 2, 202);
+	serp.draw(tela, 2, 293);
+
+	cout << tela << endl;
+	getline(cin, str);
+} */
+
 int main() {
-   
-   Sprite luff = Sprite("./sprites/monsters/texugo/texugo.sp");
-   Sprite corvo = Sprite("./sprites/monsters/corvo/corvo.sp");
-   Sprite leao = Sprite("./sprites/monsters/leao/leao.sp");
-   Sprite serp = Sprite("./sprites/monsters/serpente/serpente.sp");
+	
+	SpriteBuffer tela = SpriteBuffer(100, 10);
 
-   TextSprite msg = TextSprite("Monsters Duel - POO");
+	string str;
 
-   cout << luff << endl;
-   cout << corvo << endl;
-   cout << leao << endl;
-   cout << serp << endl;
-   cout << msg << endl;
+	ObjetoDeJogo hab = ObjetoDeJogo("Habilidades", TextSprite("HABILIDADES"), 0, 10);
+	ObjetoDeJogo itens = ObjetoDeJogo("Itens", TextSprite("ITEMS"), 1, 10);
+	ObjetoDeJogo habSp = ObjetoDeJogo("Especial", TextSprite("ESPECIAL"), 2, 10);
+	ObjetoDeJogo sleep = ObjetoDeJogo("Descansar", TextSprite("DESCANSAR"), 3, 10);
 
-   return 0;
+	ObjetoDeJogo seta = ObjetoDeJogo("Seta de seleção", TextSprite("->"), 0, 5);
+
+	while (true) {
+		getline(cin, str);
+
+		if (str == "s") {
+			seta.moveDown();
+		} else if (str == "w") {
+			seta.moveUp()	;
+		}
+
+		seta.update();
+		tela.clear();
+
+		itens.draw(tela, itens.getPosL(), itens.getPosC());
+		hab.draw(tela, hab.getPosL(), hab.getPosC());
+		habSp.draw(tela, habSp.getPosL(), habSp.getPosC());
+		sleep.draw(tela, sleep.getPosL(), sleep.getPosC());
+
+		seta.draw(tela, seta.getPosL(), seta.getPosC());
+	
+		system("clear");
+		cout << tela << endl;
+	}
+
+	return 0;
 }
