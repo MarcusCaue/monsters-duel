@@ -3,6 +3,7 @@
 
 #include "./fases/MainMenu.hpp"
 #include "./fases/Credits.hpp"
+#include "./fases/escolhas/Selections.hpp"
 
 #include <iostream>
 using std::cout, std::cin, std::endl;
@@ -80,13 +81,27 @@ class Game {
     static void run() {
       SpriteBuffer tela = SpriteBuffer(200, 10);
 
+			Jogador playerOne, playerTwo;
+			Battle battle = Battle(playerOne, playerTwo);
+
+			unsigned resp = -1;
+
       MainMenu mainMenu = MainMenu("Tela inicial", tela);
-      mainMenu.run(tela); // Se digitou "q" -> mostrar credits;
-
-      tela.clear();
-
       Credits credits = Credits("Tela de despedida", tela);
-      credits.run(tela);
+			Selections selections = Selections("Fase Geral para cadastrar os dados do Duelo", tela, battle);
+
+			// Fase* *fasesGerais = { &mainMenu, &credits, &selections };
+			
+			resp = mainMenu.run(tela);
+			tela.clear();
+			if (resp == Fase::END_GAME)
+					credits.run(tela);
+			else {
+				resp = selections.run(tela);
+				tela.clear();
+				if (resp == Fase::END_GAME)
+					credits.run(tela);
+			}
     }
 
 };

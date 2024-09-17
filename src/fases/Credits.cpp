@@ -1,7 +1,7 @@
 #include "./Credits.hpp"
 
 void Credits::init() {
-  this->objs.push_back(new ObjetoDeJogo("Final Message", TextSprite("Muito obrigado por ter jogado. Espero que tenha se divertido!"), 0, 0));
+  this->objs.push_back(new ObjetoDeJogo("Final Message", TextSprite("Muito obrigado por ter jogado. Espero que tenha se divertido!"), 5, 10));
 }
 
 unsigned Credits::run(SpriteBuffer &screen) {
