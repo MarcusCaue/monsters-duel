@@ -1,16 +1,11 @@
 #ifndef GAME
 #define GAME
 
-#include "./ASCII_Engine/Sprite.hpp"
-#include "./ASCII_Engine/SpriteBuffer.hpp"
-#include "./ASCII_Engine/ObjetoDeJogo.hpp"
+#include "./fases/MainMenu.hpp"
+#include "./fases/Credits.hpp"
 
 #include <iostream>
 using std::cout, std::cin, std::endl;
-
-#include <string>
-using std::string;
-
 
 // Tela de "seleção de monstro"
 void selectMonster() {
@@ -83,7 +78,15 @@ class Game {
   public:
 
     static void run() {
-      cout << "Olá mundo! O jogo está rodando!" << endl;
+      SpriteBuffer tela = SpriteBuffer(200, 10);
+
+      MainMenu mainMenu = MainMenu("Tela inicial", tela);
+      mainMenu.run(tela); // Se digitou "q" -> mostrar credits;
+
+      tela.clear();
+
+      Credits credits = Credits("Tela de despedida", tela);
+      credits.run(tela);
     }
 
 };
