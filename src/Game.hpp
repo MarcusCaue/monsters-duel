@@ -89,8 +89,6 @@ class Game {
       MainMenu mainMenu = MainMenu("Tela inicial", tela);
       Credits credits = Credits("Tela de despedida", tela);
 			Selections selections = Selections("Fase Geral para cadastrar os dados do Duelo", tela, battle);
-
-			// Fase* *fasesGerais = { &mainMenu, &credits, &selections };
 			
 			resp = mainMenu.run(tela);
 			tela.clear();

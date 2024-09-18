@@ -8,7 +8,7 @@ using namespace std;
 
 class ChoicePlayers : public Fase {
   public:
-    ChoicePlayers(string name, const SpriteBuffer &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg) {
+    ChoicePlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg) {
       this->firstPlayer = &p1;
       this->secondPlayer = &p2;
     }

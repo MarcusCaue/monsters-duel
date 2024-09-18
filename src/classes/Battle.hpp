@@ -16,6 +16,14 @@ class Battle {
       this->secondPlayer = &p2;
       quemEscolhendoNoTurno = -1;
     }
+
+    Jogador* getFirstPlayer() const;
+    Jogador* getSecondPlayer() const;
+    int getIndexPlayerJogando() const;
+
+    void setFirstPlayer(const Jogador& player);
+    void setSecondPlayer(const Jogador& player);
+    void setIndexPlayerJogando(int index);
 };
 
 #endif

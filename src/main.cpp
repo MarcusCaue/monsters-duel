@@ -1,6 +1,6 @@
 #include "./Game.hpp"
 
-int main() {
+int main() {	
 	Game::run();
 	return 0;
 }

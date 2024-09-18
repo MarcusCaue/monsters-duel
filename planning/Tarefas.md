@@ -1,5 +1,7 @@
+- Criar uma estrutura que me permita salvar um array de fases
+    - Consegui, vou utilizar vector
+
 - Assistir ao minicurso;
-- Remodelar o projeto com base nas explicações de Victor
 
 - Criar os Sprites do Jogo:
     - Tela inicial

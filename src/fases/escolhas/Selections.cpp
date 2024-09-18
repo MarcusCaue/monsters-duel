@@ -1,25 +1,30 @@
 #include "./Selections.hpp"
+#include "./ChoicePlayers.hpp"
 #include <iostream>
 using namespace std;
 
 void Selections::init() {
-  Sprite box = Sprite("sprites/box.sp");
-  TextSprite title = TextSprite("Insira os Nomes dos Jogadores que irão DUELAR");
+  // Fase de cadastro de jogadores
+  Jogador& playerOne = *(this->battleToCharged->getFirstPlayer());
+  Jogador& playerTwo = *(this->battleToCharged->getSecondPlayer());
+  ChoicePlayers cp = ChoicePlayers("Fase para cadastro de Jogadores", SpriteBuffer(), playerOne, playerTwo);
+  
+  this->subFases.push_back(&cp);
 
-  this->objs.push_back(new ObjetoDeJogo("Box", box, 0, 0));
-  this->objs.push_back(new ObjetoDeJogo("Box's title", title, 3, 20));
+  cout << "Desapontando..."; 
+  cout << "Dado: " << (*(subFases[0])).getName();
 }
 
 unsigned Selections::run(SpriteBuffer &screen) {
-
   this->init();
 
-  draw(screen);
-  system("clear");
-  show(screen);
+  // draw(screen);
+  // system("clear");
+  // show(screen);
   
   string entrada;
   while (true) {
+
     getline(cin, entrada);
 
     // if (entrada == "")
@@ -30,7 +35,10 @@ unsigned Selections::run(SpriteBuffer &screen) {
     draw(screen);
     system("clear");
     show(screen);
-    cout << "Endereço da batalha: " << this->battleToCharged << endl;
+
+    // cout << "Fase: " << (*(subFases[0])).getName();
+
+    // cout << "Endereço da batalha: " << this->battleToCharged << endl;
     // cout << "Valor de entrada: '" << entrada << "'" << endl;
   }
 

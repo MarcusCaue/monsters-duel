@@ -18,8 +18,8 @@ class Selections : public Fase {
   
   private:
     Battle* battleToCharged;
-    ChoicePlayers* choicePlayers;
-    // Fase subfases[7];
+    ChoicePlayers* cp;
+    vector<Fase*> subFases;
 };
 
 #endif
