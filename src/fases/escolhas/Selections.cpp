@@ -7,12 +7,9 @@ void Selections::init() {
   // Fase de cadastro de jogadores
   Jogador& playerOne = *(this->battleToCharged->getFirstPlayer());
   Jogador& playerTwo = *(this->battleToCharged->getSecondPlayer());
-  ChoicePlayers cp = ChoicePlayers("Fase para cadastro de Jogadores", SpriteBuffer(), playerOne, playerTwo);
+  ChoicePlayers cp = ChoicePlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), playerOne, playerTwo);
   
   this->subFases.push_back(&cp);
-
-  cout << "Desapontando..."; 
-  cout << "Dado: " << (*(subFases[0])).getName();
 }
 
 unsigned Selections::run(SpriteBuffer &screen) {
@@ -36,7 +33,7 @@ unsigned Selections::run(SpriteBuffer &screen) {
     system("clear");
     show(screen);
 
-    // cout << "Fase: " << (*(subFases[0])).getName();
+    cout << "Fase: " << (*(subFases[0])).getName() << endl;
 
     // cout << "Endereço da batalha: " << this->battleToCharged << endl;
     // cout << "Valor de entrada: '" << entrada << "'" << endl;
