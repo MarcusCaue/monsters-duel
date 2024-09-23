@@ -1,5 +1,5 @@
 #include "./Selections.hpp"
-#include "./ChoicePlayers.hpp"
+#include "./CadastraPlayers.hpp"
 #include <iostream>
 using namespace std;
 
@@ -12,7 +12,7 @@ void Selections::init() {
   // 1º Fase: Cadastro de Jogadores
   Jogador& playerOne = this->battleToCharged.getFirstPlayer();
   Jogador& playerTwo = this->battleToCharged.getSecondPlayer();
-  ChoicePlayers* cp = new ChoicePlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), playerOne, playerTwo);
+  CadastraPlayers* cp = new CadastraPlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), playerOne, playerTwo);
   
   this->subFases.push_back(cp);
 }

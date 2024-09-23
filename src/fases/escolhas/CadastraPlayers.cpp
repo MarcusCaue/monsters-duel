@@ -1,6 +1,6 @@
-#include "./ChoicePlayers.hpp"
+#include "./CadastraPlayers.hpp"
 
-void ChoicePlayers::init() {
+void CadastraPlayers::init() {
   Sprite box = Sprite("sprites/box.sp");
   TextSprite title = TextSprite("Insira os Nomes dos Jogadores que irão DUELAR");
 
@@ -8,7 +8,7 @@ void ChoicePlayers::init() {
   this->objs.push_back(new ObjetoDeJogo("Box's title", title, 3, 20));
 }
 
-unsigned ChoicePlayers::run(SpriteBuffer &screen) {
+unsigned CadastraPlayers::run(SpriteBuffer &screen) {
   this->init();
 
   draw(screen);

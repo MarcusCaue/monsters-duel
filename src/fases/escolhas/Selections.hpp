@@ -3,7 +3,7 @@
 
 #include "../../ASCII_Engine/Fase.hpp"
 #include "../../classes/Battle.hpp"
-#include "./ChoicePlayers.hpp"
+#include "./CadastraPlayers.hpp"
 
 #include <string>
 using namespace std;

@@ -6,11 +6,11 @@
 #include <string>
 using namespace std;
 
-class ChoicePlayers : public Fase {
+class CadastraPlayers : public Fase {
   public:
-    ChoicePlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
+    CadastraPlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
     firstPlayer(p1), secondPlayer(p2) {}
-    virtual ~ChoicePlayers() {}
+    virtual ~CadastraPlayers() {}
 
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);
