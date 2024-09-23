@@ -8,6 +8,9 @@
 #include <iostream>
 using std::cout, std::cin, std::endl;
 
+#include <vector>
+using std::vector;
+
 // Tela de "seleção de monstro"
 void selectMonster() {
 	SpriteBuffer tela = SpriteBuffer(200, 30);
@@ -91,12 +94,10 @@ class Game {
 			Selections selections = Selections("Fase Geral para cadastrar os dados do Duelo", tela, battle);
 			
 			resp = mainMenu.run(tela);
-			tela.clear();
 			if (resp == Fase::END_GAME)
-					credits.run(tela);
+				credits.run(tela);
 			else {
 				resp = selections.run(tela);
-				tela.clear();
 				if (resp == Fase::END_GAME)
 					credits.run(tela);
 			}

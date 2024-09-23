@@ -14,21 +14,24 @@ unsigned ChoicePlayers::run(SpriteBuffer &screen) {
   draw(screen);
   system("clear");
   show(screen);
+
+  string entrada, nomeP1, nomeP2;
+  getline(cin, entrada);
+
+  if (entrada == "q")
+    return Fase::END_GAME;
+
+  cout << "Digite o nome do primeiro jogador: ";
+  getline(cin, nomeP1);
+  this->firstPlayer.setNome(nomeP1);
+
+  cout << "Digite o nome do segundo jogador: ";
+  getline(cin, nomeP2);
+  this->secondPlayer.setNome(nomeP2);
+
+  if (nomeP1 != "" && nomeP2 != "") {
+    cout << "Jogadores cadastrados com sucesso!!!" << endl;
+    return Fase::LEVEL_COMPLETE;
+  } 
   
-  string entrada;
-  while (true) {
-    getline(cin, entrada);
-
-    // if (entrada == "")
-    //   return Fase::LEVEL_COMPLETE;
-    if (entrada == "q")
-      return Fase::END_GAME;
-
-    draw(screen);
-    system("clear");
-    show(screen);
-
-    cout << "Endereço do primeiro jogador: " << &(this->firstPlayer) << endl;
-    cout << "Endereço do segundo jogador: " << &(this->secondPlayer) << endl;
-  }
 }

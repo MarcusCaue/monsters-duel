@@ -10,8 +10,8 @@ Selections::~Selections() {
 
 void Selections::init() {
   // 1º Fase: Cadastro de Jogadores
-  Jogador playerOne = this->battleToCharged.getFirstPlayer();
-  Jogador playerTwo = this->battleToCharged.getSecondPlayer();
+  Jogador& playerOne = this->battleToCharged.getFirstPlayer();
+  Jogador& playerTwo = this->battleToCharged.getSecondPlayer();
   ChoicePlayers* cp = new ChoicePlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), playerOne, playerTwo);
   
   this->subFases.push_back(cp);
@@ -25,25 +25,22 @@ unsigned Selections::run(SpriteBuffer &screen) {
   show(screen);
   
   string entrada;
-  while (true) {
+  int resp;
 
-    getline(cin, entrada);
-
-
-    // if (entrada == "")
-    //   return Fase::LEVEL_COMPLETE;
-    if (entrada == "q")
+  for (Fase* f : subFases) {
+    resp = f->run(screen);
+    if (resp == Fase::END_GAME) 
       return Fase::END_GAME;
-
-    draw(screen);
-    system("clear");
-    show(screen);
-
-    cout << "Primeira Fase: " << this->subFases[0]->getName() << endl;
-
-    // cout << "Endereço da batalha: " << this->battleToCharged << endl;
-    // cout << "Valor de entrada: '" << entrada << "'" << endl;
   }
 
+  draw(screen);
+  system("clear");
+  show(screen);
+  
+  getline(cin, entrada);
+
+  if (entrada == "q")
+    return Fase::END_GAME;
+  
   return 0;
 }

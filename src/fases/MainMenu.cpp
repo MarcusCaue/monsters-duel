@@ -10,7 +10,6 @@ void MainMenu::init() {
 }
 
 unsigned MainMenu::run(SpriteBuffer &screen) {
-
   this->init();
 
   draw(screen);
@@ -18,19 +17,12 @@ unsigned MainMenu::run(SpriteBuffer &screen) {
   show(screen);
   
   string entrada;
-  while (true) {
-    getline(cin, entrada);
+  getline(cin, entrada);
 
-    if (entrada == "")
-      return Fase::LEVEL_COMPLETE;
-    else if (entrada == "q")
-      return Fase::END_GAME;
-
-    draw(screen);
-    system("clear");
-    show(screen);
-    // cout << "Valor de entrada: '" << entrada << "'" << endl;
-  }
+  if (entrada == "")
+    return Fase::LEVEL_COMPLETE;
+  else if (entrada == "q")
+    return Fase::END_GAME;
 
   return 0;
 }
