@@ -10,15 +10,14 @@ using namespace std;
 
 class Selections : public Fase {
   public:
-    Selections(string name, const SpriteBuffer &bckg, Battle& battle) : Fase(name, bckg), battleToCharged(&battle) {}
-    virtual ~Selections() {}
+    Selections(string name, const SpriteBuffer &bckg, Battle& battle) : Fase(name, bckg), battleToCharged(battle) {}
+    virtual ~Selections();
 
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);
   
   private:
-    Battle* battleToCharged;
-    ChoicePlayers* cp;
+    Battle& battleToCharged;
     vector<Fase*> subFases;
 };
 

@@ -8,18 +8,16 @@ using namespace std;
 
 class ChoicePlayers : public Fase {
   public:
-    ChoicePlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg) {
-      this->firstPlayer = &p1;
-      this->secondPlayer = &p2;
-    }
+    ChoicePlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
+    firstPlayer(p1), secondPlayer(p2) {}
     virtual ~ChoicePlayers() {}
 
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);
   
   private:
-    Jogador* firstPlayer;
-    Jogador* secondPlayer;
+    Jogador& firstPlayer;
+    Jogador& secondPlayer;
 };
 
 #endif

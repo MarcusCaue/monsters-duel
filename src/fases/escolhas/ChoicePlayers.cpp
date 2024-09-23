@@ -28,7 +28,7 @@ unsigned ChoicePlayers::run(SpriteBuffer &screen) {
     system("clear");
     show(screen);
 
-    cout << "Endereço do primeiro jogador: " << this->firstPlayer << endl;
-    cout << "Endereço do segundo jogador: " << this->secondPlayer << endl;
+    cout << "Endereço do primeiro jogador: " << &(this->firstPlayer) << endl;
+    cout << "Endereço do segundo jogador: " << &(this->secondPlayer) << endl;
   }
 }
