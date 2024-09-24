@@ -5,20 +5,22 @@
 #include "./Item.hpp"
 
 #include <string>
-#include <vector>
 using namespace std;
 
 class Jogador {
   private:
     string nome;
-    // Monster monstro;
+    Monster monster;
     // Item items[4];
 
   public:
     Jogador(string nome = "") : nome(nome) {}
 
-    string const getNome() { return this->nome; }
+    string getNome() const { return this->nome; }
     void setNome(string nome) { this->nome = nome; }
+
+    Monster getMonster() const { return this->monster; }
+    void setMonster(Monster& monster) { this->monster = monster; }
 };
 
 #endif
