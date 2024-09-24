@@ -2,8 +2,10 @@
 #define MONSTER
 
 #include "./Habilidade.hpp"
+#include <string>
+using std::string;
 #include <vector>
-using std::vector;
+using std::vector, std::string;
 
 class Monster {
   private:

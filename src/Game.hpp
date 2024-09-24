@@ -13,7 +13,7 @@ using std::vector;
 
 // Tela de "seleção de monstro"
 void selectMonster() {
-	SpriteBuffer tela = SpriteBuffer(200, 30);
+	SpriteBuffer tela = SpriteBuffer(300, 60);
 
 	Sprite luff = Sprite("./sprites/monsters/texugo/texugo.sp");
 	Sprite leao = Sprite("./sprites/monsters/leao/leao-in-battle.sp");
@@ -82,7 +82,7 @@ class Game {
   public:
 
     static void run() {
-      SpriteBuffer tela = SpriteBuffer(200, 10);
+      SpriteBuffer tela = SpriteBuffer(200, 30);
 
 			Jogador playerOne, playerTwo;
 			Battle battle = Battle(playerOne, playerTwo);

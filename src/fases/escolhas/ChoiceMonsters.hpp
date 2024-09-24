@@ -1,16 +1,16 @@
-#ifndef CADASTRA_PLAYERS
-#define CADASTRA_PLAYERS
+#ifndef CHOICE_MONSTERS
+#define CHOICE_MONSTERS
 
 #include "../../ASCII_Engine/Fase.hpp"
 #include "../../classes/Jogador.hpp"
 #include <string>
 using namespace std;
 
-class CadastraPlayers : public Fase {
+class ChoiceMonsters : public Fase {
   public:
-    CadastraPlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
+    ChoiceMonsters(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
     firstPlayer(p1), secondPlayer(p2) {}
-    virtual ~CadastraPlayers() {}
+    virtual ~ChoiceMonsters() {}
 
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);

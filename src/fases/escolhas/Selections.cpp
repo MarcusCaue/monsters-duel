@@ -1,5 +1,6 @@
 #include "./Selections.hpp"
 #include "./CadastraPlayers.hpp"
+#include "./ChoiceMonsters.hpp"
 #include <iostream>
 using namespace std;
 
@@ -13,8 +14,13 @@ void Selections::init() {
   Jogador& playerOne = this->battleToCharged.getFirstPlayer();
   Jogador& playerTwo = this->battleToCharged.getSecondPlayer();
   CadastraPlayers* cp = new CadastraPlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), playerOne, playerTwo);
+
+  // 2º Fase: Escolha dos Monstros dos Jogadores
+  Sprite bckg = Sprite("sprites/bckgChoiceMonsters/choiceMonsters.sp");
+  ChoiceMonsters* cm = new ChoiceMonsters("Fase em que os jogadores escolhem seus monstros", bckg, playerOne, playerTwo);
   
   this->subFases.push_back(cp);
+  this->subFases.push_back(cm);
 }
 
 unsigned Selections::run(SpriteBuffer &screen) {
@@ -27,11 +33,15 @@ unsigned Selections::run(SpriteBuffer &screen) {
   string entrada;
   int resp;
 
-  for (Fase* f : subFases) {
-    resp = f->run(screen);
+  resp = this->subFases[1]->run(screen);
     if (resp == Fase::END_GAME) 
       return Fase::END_GAME;
-  }
+
+  // for (Fase* f : subFases) {
+  //   resp = f->run(screen);
+  //   if (resp == Fase::END_GAME) 
+  //     return Fase::END_GAME;
+  // }
 
   draw(screen);
   system("clear");
