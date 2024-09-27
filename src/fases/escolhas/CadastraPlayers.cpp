@@ -23,11 +23,11 @@ unsigned CadastraPlayers::run(SpriteBuffer &screen) {
 
   cout << "Digite o nome do primeiro jogador: ";
   getline(cin, nomeP1);
-  this->firstPlayer.setNome(nomeP1);
+  this->battle.setFirstPlayer(Jogador(nomeP1));
 
   cout << "Digite o nome do segundo jogador: ";
   getline(cin, nomeP2);
-  this->secondPlayer.setNome(nomeP2);
+  this->battle.setSecondPlayer(Jogador(nomeP2));
 
   if (nomeP1 != "" && nomeP2 != "") {
     cout << "Jogadores cadastrados com sucesso!!!" << endl;

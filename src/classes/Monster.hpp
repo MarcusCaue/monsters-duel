@@ -1,7 +1,6 @@
 #ifndef MONSTER
 #define MONSTER
 
-#include "./Habilidade.hpp"
 #include <string>
 using std::string;
 #include <vector>
@@ -15,8 +14,6 @@ class Monster {
     unsigned int atq;
     unsigned int def;
     unsigned int energia;
-    vector<Habilidade> habilidades;
-    // HabilidadeEspecial special;
 
   public:
     Monster() : energia(100) {}

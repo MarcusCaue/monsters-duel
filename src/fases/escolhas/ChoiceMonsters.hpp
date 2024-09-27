@@ -2,22 +2,21 @@
 #define CHOICE_MONSTERS
 
 #include "../../ASCII_Engine/Fase.hpp"
-#include "../../classes/Jogador.hpp"
+#include "../../classes/Battle.hpp"
+
 #include <string>
 using namespace std;
 
 class ChoiceMonsters : public Fase {
   public:
-    ChoiceMonsters(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
-    firstPlayer(p1), secondPlayer(p2) {}
+    ChoiceMonsters(string name, const SpriteBase &bckg, Battle& battle) : Fase(name, bckg), battle(battle) {}
     virtual ~ChoiceMonsters() {}
 
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);
   
   private:
-    Jogador& firstPlayer;
-    Jogador& secondPlayer;
+    Battle& battle;
 };
 
 #endif

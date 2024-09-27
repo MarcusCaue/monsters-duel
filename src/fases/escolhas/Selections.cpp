@@ -11,13 +11,11 @@ Selections::~Selections() {
 
 void Selections::init() {
   // 1º Fase: Cadastro de Jogadores
-  Jogador& playerOne = this->battleToCharged.getFirstPlayer();
-  Jogador& playerTwo = this->battleToCharged.getSecondPlayer();
-  CadastraPlayers* cp = new CadastraPlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), playerOne, playerTwo);
+  CadastraPlayers* cp = new CadastraPlayers("Fase para cadastro de Jogadores", SpriteBuffer(1, 1), this->battleToCharged);
 
   // 2º Fase: Escolha dos Monstros dos Jogadores
   Sprite bckg = Sprite("sprites/bckgChoiceMonsters/choiceMonsters.sp");
-  ChoiceMonsters* cm = new ChoiceMonsters("Fase em que os jogadores escolhem seus monstros", bckg, playerOne, playerTwo);
+  ChoiceMonsters* cm = new ChoiceMonsters("Fase em que os jogadores escolhem seus monstros", bckg, this->battleToCharged);
   
   this->subFases.push_back(cp);
   this->subFases.push_back(cm);

@@ -20,7 +20,7 @@ class Game {
 			Jogador playerOne, playerTwo;
 			Battle battle = Battle(playerOne, playerTwo);
 
-			unsigned resp = -1;
+			int resp = -1;
 
       MainMenu mainMenu = MainMenu("Tela inicial", tela);
       Credits credits = Credits("Tela de despedida", tela);

@@ -26,10 +26,6 @@ void ChoiceMonsters::init() {
   leao->desativarObj();
   serp->desativarObj();
   corvo->desativarObj();
-  // texugoSprite->desativarObj();
-  // leaoSprite->desativarObj();
-  // serpSprite->desativarObj();
-  // corvoSprite->desativarObj();
 
   this->objs.push_back(new ObjetoDeJogo("Box's title", title, 3, 20));
   this->objs.push_back(texugo);

@@ -3,21 +3,21 @@
 
 #include "../../ASCII_Engine/Fase.hpp"
 #include "../../classes/Jogador.hpp"
+#include "../../classes/Battle.hpp"
+
 #include <string>
 using namespace std;
 
 class CadastraPlayers : public Fase {
   public:
-    CadastraPlayers(string name, const SpriteBase &bckg, Jogador& p1, Jogador& p2) : Fase(name, bckg),
-    firstPlayer(p1), secondPlayer(p2) {}
+    CadastraPlayers(string name, const SpriteBase &bckg, Battle& battle) : Fase(name, bckg), battle(battle) {}
     virtual ~CadastraPlayers() {}
 
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);
   
   private:
-    Jogador& firstPlayer;
-    Jogador& secondPlayer;
+    Battle& battle;
 };
 
 #endif
