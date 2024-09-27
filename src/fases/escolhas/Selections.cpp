@@ -33,15 +33,11 @@ unsigned Selections::run(SpriteBuffer &screen) {
   string entrada;
   int resp;
 
-  resp = this->subFases[1]->run(screen);
+  for (Fase* f : subFases) {
+    resp = f->run(screen);
     if (resp == Fase::END_GAME) 
       return Fase::END_GAME;
-
-  // for (Fase* f : subFases) {
-  //   resp = f->run(screen);
-  //   if (resp == Fase::END_GAME) 
-  //     return Fase::END_GAME;
-  // }
+  }
 
   draw(screen);
   system("clear");
